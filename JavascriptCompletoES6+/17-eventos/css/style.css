@@ -11,6 +11,14 @@ html.textomaior {
   background: teal;
 }
 
+.vermelho{
+  background-color: #E54;
+}
+
+.aumentar-font{
+  font-size: 100px;
+}
+
 img {
   display: block;
   max-width: 100%;

@@ -1,8 +1,12 @@
+//Veremos sobre accordion List
+
+
+//É sempre bom isolar cada código 
 function initTabNav() {
   const tabMenu = document.querySelectorAll('.js-tabmenu li');
   const tabContent = document.querySelectorAll('.js-tabcontent section');
 
-  if(tabMenu.length && tabContent.length) {
+  if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add('ativo');
 
     function activeTab(index) {
@@ -21,22 +25,26 @@ function initTabNav() {
 }
 initTabNav();
 
+
+
+//Criando accordinList com animação
 function initAccordion() {
   const accordionList = document.querySelectorAll('.js-accordion dt');
-  const activeClass = 'ativo';
+  if (accordionList.length) {
+    accordionList[0].classList.add('ativo');
+    accordionList[0].nextElementSibling.classList.add('ativo');
   
-  if(accordionList.length) {
-    accordionList[0].classList.add(activeClass);
-    accordionList[0].nextElementSibling.classList.add(activeClass);
-
     function activeAccordion() {
-      this.classList.toggle(activeClass);
-      this.nextElementSibling.classList.toggle(activeClass);
+      this.classList.toggle('ativo');
+      this.nextElementSibling.classList.toggle('ativo');
     }
-
+  
     accordionList.forEach((item) => {
       item.addEventListener('click', activeAccordion);
-    });
+    })
   }
 }
+//Se estivermos repetindo muito um nome, por exemplo a classe 'ativo', podemos coloca-la em
+//uma constante
 initAccordion();
+

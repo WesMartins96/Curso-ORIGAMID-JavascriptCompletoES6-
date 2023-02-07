@@ -231,16 +231,16 @@ body {
   }
 }
 
-.js .js-accordion dd {
+.js .js-accordion dd{
   display: none;
 }
 
-.js-accordion dt::after {
+.js-accordion dt::after{
   content: '⬎';
   margin-left: 10px;
 }
 
-.js-accordion dt.ativo::after {
+.js-accordion dt.ativo::after{
   content: '⬏';
 }
 
@@ -249,10 +249,11 @@ body {
   animation: slideDown .5s forwards;
 }
 
+/* Animações para o accordionList */
 @keyframes slideDown {
-  from {
-    opacity: 0;
+  from{
     max-height: 0;
+    opacity: 0;
   }
   to {
     max-height: 200px;

@@ -116,3 +116,127 @@ listaPreco[0].padStart(10, '.'); // .....R$ 99
 listaPreco[0].padEnd(10, '.'); // R$ 99.....
 
 
+//str.repeat(n)
+const silaba = 'Ta';
+silaba.repeat(5); //'TaTaTaTaTa'
+
+
+//str.replace(regexp|substr, newstr|function)
+//Troca parte ou um valor direto. Se usarmos um valor direto ele irá trocar apenas o 
+//primeiro valor que encontrar
+let listaTimes = 'SãoPaulo Corinthians Palmeiras Flamengo Atlético-MG';
+listaTimes = listaTimes.replace(/[ ]+/g, ', ') //'Regular Expression' /[ ]+/g
+
+let preco = 'R$ 1200,43';
+preco = preco.replace(',', '.'); //'R$ 1200.43'
+//Veremos mais sobre 'Regular Expression'
+
+
+//str.split(padrao)
+//Divide a string de acordo com o padrão passado e retorna uma 'array'
+const listaAnimais = 'Cachorro Gato Rato Pombo Urubu';
+const arrayAnimais = listaAnimais.split(' ');
+
+const htmlText = '<div>O melhor animal</div><div>A melhor lista</div>';
+const htmlArray = htmlText.split('div');
+
+const htmlNovo = htmlArray.join('section');
+//"join" é um método de 'Array'
+
+
+//str.toLowerCase() e str.toUpperCase()
+//Retorna a string em letras maiúsculas ou minúsculas. Bom para verificarmos input dos
+//usuários
+const sexo1 = 'Feminino';
+const sexo2 = 'feminino';
+const sexo3 = 'FEMININO';
+
+(sexo1.toLowerCase() === 'feminino'); //true
+(sexo2.toLowerCase() === 'feminino'); //true
+(sexo3.toLowerCase() === 'feminino'); //true
+
+
+//str.trim(), str.trimStart(), str.trimEnd()
+//Remove espaço em branco do início ou final de uma string.
+const valor = '  R$ 23.00  ';
+valor.trim(); //'R$ 23.00'
+valor.trimStart(); //'R$ 23.00  '
+valor.trimEnd(); //'  R$23.00'
+
+
+
+//Exercicios
+//Utilizando o 'forEach' na array abaixo, some os valores de taxa e os valores de recebimento
+const transacoes = [
+  {
+    descricao: 'Taxa do Pão',
+    valor: 'R$ 39',
+  },
+  {
+    descricao: 'Taxa do Mercado',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Cliente',
+    valor: 'R$ 99',
+  },
+  {
+    descricao: 'Taxa do Banco',
+    valor: 'R$ 129',
+  },
+  {
+    descricao: 'Recebimento de Taxa Cliente',
+    valor: 'R$ 49',
+  },
+];
+
+let taxaTotal = 0;
+let recebimentoTotal = 0;
+transacoes.forEach((item) => {
+  const numLimpo = +item.valor.replace('R$ ', '');
+  //DICA ==> '+' na frente de uma variável 'string' se torna 'Number'
+  if(item.descricao.slice(0, 4) === 'Taxa')
+    taxaTotal += numLimpo;
+  else if(item.descricao.slice(0, 4) === 'Rece')
+    recebimentoTotal += numLimpo;  
+})
+
+console.log('Taxa Total: ' + taxaTotal);
+console.log('Recebimento Total: ' + recebimentoTotal);
+
+
+//Retone um array com a lista abaixo:
+const transporte = 'Carro;Avião;Trem;Ônibus;Bicicleta';
+const transporteArray = transporte.replace(/[;]+/g, ' ');
+console.log(transporteArray.split(' '));
+
+
+//Retorne todos os 'spans' por 'as';
+const html = `<ul>
+                <li><span>Sobre</span></li>
+                <li><span>Produtos</span></li>
+                <li><span>Contatos</span></li>
+              </ul>`;
+const htmlAs = html.split('span');
+const htmlFinal = htmlAs.join('a');
+console.log(htmlFinal);
+
+              
+//Retorne o último caractere da frase              
+const frase1 = 'Melhor do ano!';
+console.log(frase1[frase1.length - 1]);
+
+
+//Retorne o total de 'taxas';
+const transacao = ['Taxa de banco', '  TAXA DO PÃO', ' taxa do mercado', 
+'depósito bancário', 'TARIFA especial']
+
+let taxasTotal = 0;
+transacao.forEach((item) => {
+  item = item.toLowerCase().trim();
+  item = item.slice(0, 4);
+  if (item === 'taxa') {
+    taxasTotal++
+  }
+})
+console.log('Total de taxas: ' + taxasTotal);

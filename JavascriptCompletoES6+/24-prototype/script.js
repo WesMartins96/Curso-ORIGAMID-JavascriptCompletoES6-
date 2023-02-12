@@ -143,7 +143,7 @@ Object.getOwnPropertyNames(Document.prototype);
 
 //Liste os construtores dos dados abaixo
 const li = document.querySelector('li');
-li; //HTNLLIElement
+li; //HTMLLIElement
 li.click; //Function
 li.innerText; //String
 li.value; //Number

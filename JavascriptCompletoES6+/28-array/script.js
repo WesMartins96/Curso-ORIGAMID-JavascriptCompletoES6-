@@ -124,3 +124,116 @@ const myDogCars = ['Ford', 'Fiat', 'VW', 'Honda'];
 myDogCars.reverse(); //['Honda', 'VW', 'Fiat', 'Ford']
 console.log(myDogCars); 
 
+
+
+//"[].splice()"
+//'[].splice(index, remover, item1, item2, ...)' adiciona valores na array a partir do
+//index. Remove a quantidade de itens que for passada no segundo parâmetro (retorna esses itens).
+const karts = ['Ford', 'Ferrari', 'Volkswagen', 'Honda'];
+karts.splice(1, 0, 'Kia', 'Mustang'); // [] 
+karts; //['Ford', 'Kia', 'Mustang', 'Ferrari', 'Volkswagen', 'Honda']
+console.log(karts);
+
+karts.splice(3, 2, 'Ferrari'); //['Fiat', 'VW']
+karts; //['Ford', 'Kia', 'Mustang', 'Ferrari', 'Honda']
+console.log(karts);
+
+
+
+//"[].copyWithin()" 
+//[].copyWithin(alvo, inicio, final)' a partir do alvo, ele irá copiar a array começando
+//do inicio até o final e vai preencher a mesma com essa cópia. Caso omita os valores de
+//início e final, ele irá utilizar como o inicio o 0 e final o valor total da array.
+['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(2, 0, 3);
+//['Item1', 'Item2', 'Item1', 'Item2']
+
+['Item1', 'Item2', 'Item3', 'Item4'].copyWithin(-1);
+//['Item1', 'Item2', 'Item3', 'Item1']
+
+
+
+//"[].fill()"
+//'[].fill(valor, inicio, final)' preenche a array com o valor, do inicio até o fim.
+var exemploFill = ['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana');
+//['Banana', 'Banana', 'Banana', 'Banana']
+console.log(exemploFill);
+
+exemploFill = ['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 2);
+//['Item1', 'Item2', 'Banana', 'Banana']
+console.log(exemploFill);
+
+exemploFill = ['Item1', 'Item2', 'Item3', 'Item4'].fill('Banana', 1, 3);
+//['Item1', 'Banana', 'Banana', 'Item4']
+console.log(exemploFill);
+
+
+
+//--METODOS DE ACESSO--  (Não modificam o array, o que mais importa é o seu retorno)
+
+//"[].concat()"
+//Os métodos abaixo não modificam a array original, apenas retornam uma array modificada.
+//'[].concat()' irá concatenar a array com o valor passado.
+const transporte1 = ['Barco', 'Avião'];
+const transporte2 = ['Carro', 'Moto'];
+const transporte3 = transporte1.concat(transporte2);
+//['Barco', 'Avião', 'Carro', 'Moto']
+
+const maisTransporte = [].concat(transporte1, transporte2, 'Van')
+//['Barco', 'Avião', 'Carro', 'Moto', 'Van']
+console.log(maisTransporte);
+
+
+//"[].includes()", "[].indexOf()" e "[].lastIndexOf()"
+//'[].includes(valor)' verifica se a array possui o valor e retorna 'true' ou 'false'.
+//'[].indexOf(valor)' verifica se a array possui o valor e retorna o index do primeiro valor
+//na array.
+//'[].lastIndexOf(valor)' retorna o index do última.
+const linguagens = ['html', 'css', 'js', 'php', 'python', 'js'];
+console.log(linguagens);
+
+linguagens.includes('css'); //true
+linguagens.includes('ruby'); //false
+linguagens.indexOf('python'); //4
+linguagens.indexOf('js'); //2
+linguagens.lastIndexOf('js') //5
+
+
+//"[].join()"
+//'[].join(separador)' junta todos os valores da array e retorna uma string com eles.
+//Se você passar por um valor como parâmetro, este será utilizado durante a junção de cada
+//item da array.
+const languages = ['html', 'css', 'js', 'php', 'python', 'js'];
+console.log(languages);
+
+languages.join(); //'html,css,js,php,python,js'
+languages.join(' '); //'html css js php python js'
+languages.join('-_-'); //'html-_-css-_-js-_-php-_-python-_-js'
+
+let htmlString = '<h2>Título Principal</h2>'
+htmlString = htmlString.split('h2');
+//['<', '>Título Principal</', '>']
+
+htmlString = htmlString.join('h1');
+//'<h1>Título Principal</h1>'
+
+
+//"[].slice()"
+//'[].slice(inicio, final)' retorna os itens da array começando pelo início e indo até 
+//o valor final.
+const lang = ['html', 'css', 'js', 'php', 'python'];
+lang.slice(3); //['php', 'python', 'js']
+console.log(lang.slice(3));
+
+lang.slice(1, 4); //['css', 'js', 'php']
+console.log(lang.slice(1, 4));
+
+
+//Técnica muito comum de se clonar "arrays"
+const cloneLang = lang.slice();
+//['html', 'css', 'js', 'php', 'python']
+console.log(cloneLang);
+
+
+
+
+//Exercícios

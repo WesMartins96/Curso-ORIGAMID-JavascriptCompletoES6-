@@ -237,3 +237,60 @@ console.log(cloneLang);
 
 
 //Exercícios
+const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
+//Remova o primeiro valor de comidas e coloque em uma variável.
+const primeiroValor = comidas.shift();
+console.log(primeiroValor)
+
+//Remova o último valor de comidas e coloque em uma variável.
+const ultimoValor = comidas.pop();
+console.log(ultimoValor);
+
+//Adicione 'Arroz' ao final do array.
+comidas.push('Arroz')
+console.log(comidas);
+
+//Adicione 'Peixe' e 'Batata' ao início do array.
+comidas.unshift('Peixe', 'Batata');
+console.log(comidas);
+
+
+const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
+//Arrume os estudantes em ordem alfabética
+estudantes.sort();
+console.log(estudantes);
+
+//Inverta a ordem dos estudantes
+estudantes.reverse();
+console.log(estudantes);
+
+//Verifique se 'Joana' faz parte dos estudantes
+estudantes.includes('Joana'); // true
+console.log(estudantes.includes('Joana'));
+
+//Verifique se 'Juliana' faz parte dos estudantes
+const juliana = estudantes.includes('Juliana'); // galse
+console.log(juliana);
+
+
+let html = `<section>
+              <div>Sobre</div>
+              <div>Produtos</div>
+              <div>Contatos</div>
+            </section>`
+//Substitua 'section' por 'ul' e 'div' por 'li', utilizando 'split' e 'join'
+htmlSection = html.split('section');
+htmlSection = htmlSection.join('ul')
+
+htmlDiv = htmlSection.split('div');
+htmlDiv = htmlDiv.join('li');
+console.log(htmlDiv);
+
+const carrosEx = ['Ford', 'Fiat', 'VW', 'Honda'];
+//Remova o último carro, mas antes de remover salve o array original em outra variável
+ const carrosCopiaEx = carrosEx.slice(); // assim podemos criar um array clone. que podem
+ //ser manipulados separadamentes
+
+ carrosEx.pop();
+ console.log(carrosCopiaEx);
+ console.log(carrosEx);

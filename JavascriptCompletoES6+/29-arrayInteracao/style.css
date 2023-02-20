@@ -1,0 +1,41 @@
+/* estilização do container das seções */
+.curso {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 50%;
+  padding: 30px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+}
+
+/* estilização do título */
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* estilização do texto descritivo */
+p {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* estilização das informações de aulas e horas */
+.aulas, .horas {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #ff5a5f;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}

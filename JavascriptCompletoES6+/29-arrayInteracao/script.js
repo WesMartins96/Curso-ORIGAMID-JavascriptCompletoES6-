@@ -158,3 +158,146 @@ const upNumbers = numbers.reduce((anterior, atual) => {
 console.log(upNumbers);
 
 
+//"[].reduceRight()"
+//Existe também o método '[].reduceRight()', a diferença é que este começa a iterar
+//da direita para a esquerda, enquanto o reduce itera da esquerda para a direita.
+const frutas = ['Banana', 'Pêra', 'Uva'];
+
+const frutasRight = frutas.reduceRight((acc, fruta) => acc + ' ' + fruta);
+console.log(frutasRight);
+
+const frutasLeft = frutas.reduce((acc, frutas) => acc + ' ' + frutas);
+console.log(frutasLeft);
+
+frutasRight; // Uva Pêra Banana
+frutasLeft; // Banana Pêra Uva
+
+
+//"[].some()"
+//'[].some()', se pelo menos um return da iteração for 'truthy', ele retorna true
+const fruits = ['Abacaxi', 'Caju', 'Limão'];
+const temLimao = fruits.some((fruits) => {
+  return fruits === 'Limão'
+}); //true
+console.log(temLimao);
+
+function maiorQue100(numero) {
+  return numero > 100;
+};
+
+const n = [0, 43, 22, 88, 101, 2];
+const temMaior = n.some(maiorQue100); //true;
+console.log(temMaior);
+
+
+//"[].every()"
+//'[].every()', verifica se todos os returns das interações forem trurhy, o método irá 
+//retornar true. S e pelo menos um for falsy, ele irá retornar false.
+const food = ['Macarrão', 'Bife', 'Lassanha', ''];
+//False pois pelo menos um elemento do array está vazia '', o que é um valor "falsy"
+
+const arrayCheia = food.every((food) => {
+  return food; //false
+})
+console.log(arrayCheia); //false
+
+const num = [6, 43, 22, 88, 101, 29];
+const maiorQue3 = num.every(x => x > 3); //true
+console.log(maiorQue3); //true
+
+
+//"[].find()" e "[].findInfex()"
+//'[].find()', retorna o valor atual da primeira iteração que retorna um valor 'Truthy'
+//Já o '[].findIndex()', ao invés de retornar o valor, retorna o index deste valor na array.
+const paises = ['Brasil', 'Alemanha', 'Japão', 'Espanha'];
+const buscaJapao = paises.findIndex((pais) => {
+  return pais === 'Japão';
+}); // 2
+console.log(buscaJapao); // 2
+
+const n2 = [6, 43, 22, 88, 101, 29];
+const buscaMaior = n2.find(x => x > 45); // 88
+console.log(buscaMaior); // 88
+
+
+//"[].filter()"
+//'[].filter()', retorna uma array com a lista de valores que durante a sua iteração
+//retornam um valor 'Truthy'
+const nomes = ['Wesley', undefined, null, '', 'Gael', 0, 'Beatriz'];
+const arrayClear = nomes.filter((nome) => {
+  return nome; //['Wesley', 'Gael', 'Beatriz']
+});
+console.log(arrayClear); //['Wesley', 'Gael', 'Beatriz']
+
+const num2 = [6, 43, 22, 88, 101, 29];
+const buscarMaior45 = num2.filter(x => x > 45); //[88, 101]
+console.log(buscarMaior45); //[88, 101]
+
+
+
+
+//Exercícios
+//Selecione cada curso e retorne uma array com objetos contendo o titulo, descrição,
+//aulas e horas de cada curso.
+const cursos = document.querySelectorAll('.curso');
+const arrayCursos = Array.from(cursos);
+
+const objetosCurso = arrayCursos.map((curso) => {
+  const titulo = curso.querySelector('h1').innerText;
+  const descricao = curso.querySelector('p').innerText;
+  const aulas = curso.querySelector('.aulas').innerText
+  const horas = curso.querySelector('.horas').innerText;
+  return {
+    titulo: titulo,
+    descricao: descricao,
+    aulas: aulas,
+    horas: horas
+  }
+});
+console.log(objetosCurso);
+
+
+//Retorne uma lista com os números maiores que 100.
+const numerosEx = [3, 44, 333, 23, 122, 322, 33];
+const maior100 = numerosEx.filter(n => n > 100);
+console.log(maior100); //[333, 122, 322]
+
+
+//Verifique se 'Baixo' faz parte da lista de instrumentos e retorne true.
+const instrumentosEx = ['Guitarra', 'Baixo', 'Bateria', 'Teclado'];
+const findBaixo = instrumentosEx.some((instrumento) => {
+  return instrumento === 'Baixo'; //true
+})
+console.log(findBaixo); //true
+
+
+//Retorne o valor total das compras
+const comprasEx = [
+  {
+    item: 'Banana',
+    preco: 'R$ 4,99'
+  },
+  {
+    item: 'Ovo',
+    preco: 'R$ 2,99'
+  },
+  {
+    item: 'Carne',
+    preco: 'R$ 25,49'
+  },
+  {
+    item: 'Refrigerante',
+    preco: 'R$ 5,35'
+  },
+  {
+    item: 'Queijo',
+    preco: 'R$ 10,60'
+  },
+]
+
+const valorTotal = comprasEx.reduce((acumulador, item) => {
+  const precoLimpo = +item.preco.replace('R$ ', '').replace(',', '.');
+  console.log(precoLimpo);
+  return acumulador + precoLimpo; //49.42
+}, 0);
+console.log('Valor total: ' + valorTotal); //49.42

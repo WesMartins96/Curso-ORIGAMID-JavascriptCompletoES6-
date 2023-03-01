@@ -52,7 +52,7 @@
 //   rodas: {
 //     enumerable: true,
 //     get() {
-//       return 2;
+//       return 2; 
 //     },
 //     set(valor) {
 //       this._rodas = valor * 4 + ' Total Rodas'

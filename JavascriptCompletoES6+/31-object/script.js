@@ -101,3 +101,94 @@ Object.defineProperties(suzukiMotors, {
 })
 suzukiMotors.velocidade = 220;
 
+
+//"Object.getOwnPropertyDescriptors(obj)"
+//Lista todos os métodos e propriedades de um objeto, com as suas devidas configurações.
+Object.getOwnPropertyDescriptors(Array);
+//Lista com métodos e propriedades e Array
+
+Object.getOwnPropertyDescriptors(Array.prototype);
+//Lista com métodos e propriedades do protótipo de Array
+
+Object.getOwnPropertyDescriptor(window, 'innerHeight');
+//Puxa de uma única propriedade
+
+
+//'Object.keys(obj)', 'Object.values(obj)' e 'Object.entries(obj)'
+//"Object.heys(obj)" retorna uma array com as chaves de todas as propriedades diretas e 
+//enumeráveis do objeto.
+//"Object.values(obj)" retorna uma array com os valores do objeto.
+//"Object.entries(obj)" retorna uma array com array's contendo a chave e o valor.
+Object.keys(Array);
+// [] vazia, pois não possui propriedades enumeráveis
+
+const cachorro = {
+  raca: 'Shitzhu',
+  idade: 3,
+}
+Object.keys(cachorro);
+// ['raca', 'idade']
+
+Object.values(cachorro);
+// ['Shitzhu', 3]
+
+Object.entries(cachorro);
+/*
+(2) [Array(2), Array(2)]
+0: (2) ['raca', 'Shitzhu']
+1: (2) ['idade', 3]
+length: 2
+[[Prototype]]: Array(0)
+*/
+
+
+//'Object.getOwnPropertyNames(obj)'
+//Retorna uma array com todas as propriedades diretas do objeto
+//(não retorna as do protótipo).
+Object.getOwnPropertyNames(Array);
+// ['length', 'name', 'prototype', 'isArray', 'from', 'of']
+
+Object.getOwnPropertyNames(Array.prototype);
+// ['length', 'constructor', 'at', 'concat', 'copyWithin', 'fill', 'find', 'findIndex', 
+//'lastIndexOf', 'pop', 'push', 'reverse', 'shift', 'unshift', 'slice', 'sort', 'splice', 
+//'includes', 'indexOf', 'join', 'keys', 'entries', 'values', 'forEach', 'filter', 'flat', 
+//'flatMap', 'map', 'every', 'some', 'reduce', 'reduceRight', 'toLocaleString', 'toString', 
+//'findLast', 'findLastIndex', 'toReversed', 'toSorted', 'toSpliced', 'with']
+
+const cor = {
+  nome: 'Azul',
+  preco: 4.99,
+} 
+Object.getOwnPropertyNames(cor);
+// ['nome', 'preco']
+
+
+//"Object.getPrototypeOf()" e "Object.is()"
+//'Object.getPrototypeOf()', retorna o protótipo do objeto.
+//'Object.is(obj1, obj2)' verifica se os objetos são iguais e retorna true ou false
+const frutas = ['Banana', 'Pêra'];
+Object.getPrototypeOf(frutas); //Protótipo do tipo (neste caso 'Array')
+Object.getPrototypeOf(''); //String
+
+const frutas1 = ['Banana', 'Pêra'];
+const frutas2 = ['Banana', 'Pêra'];
+Object.is(frutas1, frutas2); //False, pois são objetos diferentes.
+
+
+
+//"Object.freeze()", "Object.seal()" e "Object.preventExtensions()"
+//'Object.freeze()' impede qualquer mudança nas propriedades.
+//'Object.seal()' previne a adição de novas propriedades e impede que as atuais sejam deletadas.
+//'Object.preventExtensions()' previne a adição de novas propriedades.
+const veiculo = {
+  tipo: 'Carro',
+  ano: 1998,
+}
+Object.freeze(veiculo); 
+Object.seal(veiculo);
+Object.preventExtensions(veiculo);
+
+Object.isFrozen(veiculo); //true
+Object.isSealed(veiculo); //true
+Object.isExtensible(veiculo); //false
+
